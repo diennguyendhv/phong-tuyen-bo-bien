@@ -177,8 +177,8 @@ body { margin: 0; overflow: hidden; background: var(--night); color: var(--ink);
     <div class="card" style="width:min(420px,100%)">
       <span class="eyebrow">Ủng hộ tác giả</span>
       <h2>Cảm ơn bạn đã chơi</h2>
-      <p>Nếu thích game, bạn có thể ủng hộ để tác giả làm tiếp các chương sau. Mở ứng dụng ngân hàng và quét mã bên dưới.</p>
-      <img id="donate-img" src="ung-ho-qr.jpg" alt="Mã QR ủng hộ tác giả" style="width:100%;max-width:320px;align-self:center;border-radius:6px;background:#fff">
+      <p>Nếu thích game, bạn có thể ủng hộ để tác giả làm tiếp các chương sau. Mở ZaloPay hoặc bất kỳ ứng dụng ngân hàng nào và quét mã bên dưới.</p>
+      <img id="donate-img" src="ung-ho-qr.jpg?v=2" alt="Mã QR ủng hộ tác giả" style="width:100%;max-width:320px;align-self:center;border-radius:6px;background:#fff">
       <p id="donate-missing" hidden>Bản này chưa có mã QR.</p>
       <div class="row"><button class="btn" id="btn-donate-close" type="button">Đóng</button></div>
     </div>
@@ -1297,7 +1297,7 @@ async function selfTest() {
   check(6, 'Chọn "Ở lại chặn hậu" thì sang đợt 13 ban đêm, đầy bền', () => { ui.over.hidden = true; newGame(6); G.silent = true; G.wave = 12; G.hp = 20; enterUpgrade(); $('btn-stay').click(); return G.endless && G.state === 'playing' && G.wave === 13 && G.hp === G.stats.maxHp && hourNow() === 20; });
   check(6, 'Thua khi chặn hậu ra kết "Ụ Ba Không Tắt Lửa"', () => { G.wave = 16; G.score = 0; damagePlayer(999); return $('over-title').textContent === 'Ụ Ba Không Tắt Lửa' && $('over-story').textContent.includes('giữ thêm 3 đợt'); });
   check(6, 'Thua giữa trưa thì câu thua đúng hồi II', () => { ui.over.hidden = true; newGame(2); G.silent = true; G.wave = 5; G.score = 0; damagePlayer(999); return $('over-story').textContent.includes('Trời còn sáng quá') && $('over-eyebrow').textContent.includes('10:'); });
-  check(6, 'Mở và đóng bảng ủng hộ', () => { ui.over.hidden = true; toMenu(); $('btn-donate1').click(); const open = vis(ui.donate) && /ung-ho-qr\.jpg$/.test($('donate-img').getAttribute('src')); $('btn-donate-close').click(); return open && !vis(ui.donate); });
+  check(6, 'Mở và đóng bảng ủng hộ', () => { ui.over.hidden = true; toMenu(); $('btn-donate1').click(); const open = vis(ui.donate) && /^ung-ho-qr\.jpg(\?v=\d+)?$/.test($('donate-img').getAttribute('src')); $('btn-donate-close').click(); return open && !vis(ui.donate); });
   check(6, 'Mở và đóng ghi chú lịch sử', () => { $('btn-history').click(); const open = vis(ui.history) && ui.history.textContent.includes('Vạn Tường'); $('btn-history-close').click(); return open && !vis(ui.history); });
 
   // Phase 4
