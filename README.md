@@ -8,8 +8,10 @@ Thôn Cát Lộc và các nhân vật là hư cấu, lấy cảm hứng từ tr�
 
 ## Chơi
 
-- **Online:** https://diennguyendhv.github.io/phong-tuyen-bo-bien/
-- **Offline:** tải `index.html` về rồi mở bằng trình duyệt.
+- **Online (tiếng Việt):** https://diennguyendhv.github.io/phong-tuyen-bo-bien/
+- **Online (English):** https://diennguyendhv.github.io/phong-tuyen-bo-bien/en.html
+- **Offline:** tải `index.html` (hoặc `en.html`) về rồi mở bằng trình duyệt.
+- **Đổi ngôn ngữ:** nút English / Tiếng Việt ở menu, hoặc thêm `?lang=en` / `?lang=vi` vào đường dẫn.
 
 | | Máy tính | Điện thoại |
 |---|---|---|
@@ -22,13 +24,15 @@ Luật chơi đầy đủ: [LUAT-VA-PHASE.md](LUAT-VA-PHASE.md). Kịch bản: [
 
 ## Tự kiểm tra
 
-Mở game với đuôi `#selftest` để chạy bộ test theo 6 phase, ví dụ `index.html#selftest`.
+Mở game với đuôi `#selftest` để chạy bộ test theo 7 phase, ví dụ `index.html#selftest` hoặc `en.html#selftest`.
 
 ## Cấu trúc
 
 | File | Vai trò |
 |---|---|
 | `game.html` | Mã nguồn game (phần thân trang) |
-| `index.html` | Trang đầy đủ, tạo từ `game.html` bằng `build.ps1` |
-| `build.ps1` | Tạo lại `index.html` sau khi sửa `game.html` |
+| `index.html` | Trang tiếng Việt, tạo từ `game.html` bằng `build.ps1` |
+| `en.html` | Trang tiếng Anh (English), tạo từ `game.html` bằng `build.ps1` |
+| `build.ps1` | Tạo lại `index.html` và `en.html` sau khi sửa `game.html` |
+| `anh-bia.jpg`, `anh-bia-en.jpg` | Ảnh xem trước khi chia sẻ link |
 | `ung-ho-qr.jpg` | Ảnh mã QR ủng hộ (nếu có) |

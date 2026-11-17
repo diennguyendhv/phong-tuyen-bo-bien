@@ -64,5 +64,7 @@ Game có sẵn bộ tự kiểm tra. Mở game với đuôi `#selftest` (ví d�
 | 3. Đợt, điểm, thua | Hàng đợi địch, độ khó tăng, thưởng đợt, sửa phòng tuyến, thua, lưu điểm | Độ khó không giảm qua các đợt; cùng seed ra cùng thứ tự địch; hạ địch cộng đúng điểm; qua đợt có thưởng và sửa +20; hết bền thì thua |
 | 4. Giao diện | Menu, tạm dừng, thua, HUD, nút cho điện thoại, âm thanh | Nút Vào trận bắt đầu game; tạm dừng/tiếp tục; có nút pháo cho điện thoại; trang không bị cuộn ngang |
 | 5. Nâng cấp & tiếp tế | Bảng chọn nâng cấp, 7 loại nâng cấp, 3 loại thùng tiếp tế, cân bằng đợt 4 | Mỗi nâng cấp đổi đúng chỉ số; 3 lựa chọn khác nhau; đủ cấp thì không hiện nữa; bền thấp luôn có sửa chữa; game dừng khi đang chọn; phím 1–3 chọn được; mỗi loại thùng có đúng tác dụng; thùng chạm đất thì mất; thùng không chặn qua đợt; đợt 4 không tăng vọt |
+| 6. Kịch bản & ủng hộ | Lời thoại bộ đàm 12 đợt, đồng hồ, bầu trời, hai cái kết, ghi chú lịch sử, bảng ủng hộ | Đủ lời thoại; đồng hồ 06:00→17:00; trời đổi màu; đúng câu kết theo lựa chọn; mở/đóng ghi chú và bảng ủng hộ |
+| 7. Ngôn ngữ | Bản tiếng Việt và tiếng Anh trong cùng mã nguồn (`?lang=`, `en.html`) | Bản Anh đủ lời thoại, cùng người nói; lời dịch không sót chữ Việt (trừ tên riêng); mọi chữ trên màn hình đã dịch; nút đổi ngôn ngữ đúng |
 
 Ngoài bộ test trong game, mỗi phase còn được chạy thử trong trình duyệt: chụp màn hình và kiểm tra lỗi console.

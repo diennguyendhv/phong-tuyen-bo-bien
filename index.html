@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mười Hai Giờ Cát Lộc</title>
 <meta name="description" content="Mười Hai Giờ Cát Lộc: giữ ụ súng trên đồi cát Quảng Ngãi năm 1965 từ rạng sáng tới hoàng hôn.">
 <meta name="theme-color" content="#0e1a22">
+<link rel="alternate" hreflang="vi" href="https://diennguyendhv.github.io/phong-tuyen-bo-bien/">
+<link rel="alternate" hreflang="en" href="https://diennguyendhv.github.io/phong-tuyen-bo-bien/en.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:site_name" content="Mười Hai Giờ Cát Lộc">
@@ -18,9 +21,9 @@
 <meta property="og:image:alt" content="Ụ súng trên đồi cát nhìn ra biển lúc hoàng hôn, tàu chiến ngoài khơi">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://diennguyendhv.github.io/phong-tuyen-bo-bien/anh-bia.jpg">
-<title>Mười Hai Giờ Cát Lộc</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Be+Vietnam+Pro:wght@400;600&display=swap">
+
 </head>
 <body>
 <style>
@@ -112,98 +115,99 @@ body { margin: 0; overflow: hidden; background: var(--night); color: var(--ink);
 </style>
 
 <div id="stage">
-  <canvas id="game" aria-label="Chiến trường"></canvas>
+  <canvas id="game" aria-label="Chiến trường" data-en-aria="Battlefield"></canvas>
 
   <div class="hud hud-tl">
-    <span class="label">Đợt</span><span class="big" id="hud-wave">1</span>
-    <span id="hud-clock">06:00 · còn 12 giờ tới tối</span>
+    <span class="label" data-en="Wave">Đợt</span><span class="big" id="hud-wave">1</span>
+    <span id="hud-clock" data-en="06:00 · 12 hours to nightfall">06:00 · còn 12 giờ tới tối</span>
     <span id="hud-buff"></span>
   </div>
   <div class="hud hud-tr">
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
       <span class="big" id="hud-score">0</span>
-      <span class="best">Cao nhất <span id="hud-best">0</span></span>
+      <span class="best"><span data-en="Best">Cao nhất</span> <span id="hud-best">0</span></span>
     </div>
-    <button class="icon-btn" id="btn-pause" type="button" aria-label="Tạm dừng">II</button>
+    <button class="icon-btn" id="btn-pause" type="button" aria-label="Tạm dừng" data-en-aria="Pause">II</button>
   </div>
   <div class="hud hud-bl">
-    <div class="meter"><span class="label">Phòng tuyến</span><div class="bar" id="bar-hp"><i></i></div></div>
-    <div class="meter"><span class="label">Nhiệt nòng</span><div class="bar" id="bar-heat"><i></i></div></div>
-    <div class="meter"><span class="label">Pháo</span><div class="bar" id="bar-cannon"><i></i></div></div>
+    <div class="meter"><span class="label" data-en="Defenses">Phòng tuyến</span><div class="bar" id="bar-hp"><i></i></div></div>
+    <div class="meter"><span class="label" data-en="Barrel heat">Nhiệt nòng</span><div class="bar" id="bar-heat"><i></i></div></div>
+    <div class="meter"><span class="label" data-en="Cannon">Pháo</span><div class="bar" id="bar-cannon"><i></i></div></div>
   </div>
-  <button id="btn-cannon" type="button">PHÁO</button>
+  <button id="btn-cannon" type="button" data-en="CANNON">PHÁO</button>
   <div id="banner"></div>
   <div id="radio" hidden><b id="radio-who"></b><span id="radio-text"></span></div>
 
   <div class="overlay" id="menu">
     <div class="card">
-      <span class="eyebrow">Quảng Ngãi · Mùa hè 1965</span>
-      <h1>Mười Hai Giờ Cát Lộc</h1>
-      <p>Lính Mỹ đổ bộ lúc rạng sáng. Sáu trăm người thôn Cát Lộc đang trú dưới địa đạo, và chỉ rút ra được khi trời tối. Bạn giữ ụ súng số 3 trên đồi cát. Còn mười hai giờ nữa mới tới hoàng hôn.</p>
+      <span class="eyebrow" data-en="Quảng Ngãi · Summer 1965">Quảng Ngãi · Mùa hè 1965</span>
+      <h1 data-en="Twelve Hours at Cát Lộc">Mười Hai Giờ Cát Lộc</h1>
+      <p data-en="American troops land at dawn. Six hundred people of Cát Lộc hamlet are hiding in the tunnels, and they can only slip away after dark. You hold gun pit number three on the sand dune. Twelve hours until sunset.">Lính Mỹ đổ bộ lúc rạng sáng. Sáu trăm người thôn Cát Lộc đang trú dưới địa đạo, và chỉ rút ra được khi trời tối. Bạn giữ ụ súng số 3 trên đồi cát. Còn mười hai giờ nữa mới tới hoàng hôn.</p>
       <dl class="rules">
-        <dt>Súng máy</dt><dd>Giữ chuột trái. Bắn nhanh, nhưng nóng nòng thì phải chờ nguội. Chỉ gây 20% sát thương lên xe lội nước và xe tăng.</dd>
-        <dt>Pháo</dt><dd>Chuột phải hoặc Space. Nổ lan, mạnh, nạp đạn 1,4 giây.</dd>
-        <dt>Điện thoại</dt><dd>Chạm giữ để ngắm và bắn súng máy (tâm ngắm nằm trên ngón tay). Bấm nút PHÁO để bắn pháo.</dd>
-        <dt>Thắng đợt</dt><dd>Hạ hết địch: thưởng 100 × số đợt, sửa +20 và chọn 1 trong 3 nâng cấp (phím 1, 2, 3).</dd>
-        <dt>Tiếp tế</dt><dd>Dù tiếp tế của địch bị gió thổi lệch. Bắn đứt dây để kéo về: <b style="color:#8fd17a">+</b> sửa phòng tuyến, <b style="color:#7fd0f0">❄</b> nước giếng làm mát nòng 8 giây, <b style="color:#ffb02e">»</b> pháo nạp siêu nhanh 8 giây.</dd>
-        <dt>Thua</dt><dd>Phòng tuyến về 0. Bắn bom trên không trước khi chúng rơi xuống.</dd>
+        <dt data-en="Machine gun">Súng máy</dt><dd data-en="Hold the left mouse button. Fast, but an overheated barrel must cool down. Deals only 20% damage to amtracs and tanks.">Giữ chuột trái. Bắn nhanh, nhưng nóng nòng thì phải chờ nguội. Chỉ gây 20% sát thương lên xe lội nước và xe tăng.</dd>
+        <dt data-en="Cannon">Pháo</dt><dd data-en="Right mouse button or Space. Heavy splash damage, 1.4 s reload.">Chuột phải hoặc Space. Nổ lan, mạnh, nạp đạn 1,4 giây.</dd>
+        <dt data-en="Phone">Điện thoại</dt><dd data-en="Touch and hold to aim and fire the machine gun (the crosshair sits above your finger). Tap CANNON to fire the cannon.">Chạm giữ để ngắm và bắn súng máy (tâm ngắm nằm trên ngón tay). Bấm nút PHÁO để bắn pháo.</dd>
+        <dt data-en="Clear a wave">Thắng đợt</dt><dd data-en="Destroy every enemy: bonus of 100 × wave, +20 repair, and pick 1 of 3 upgrades (keys 1, 2, 3).">Hạ hết địch: thưởng 100 × số đợt, sửa +20 và chọn 1 trong 3 nâng cấp (phím 1, 2, 3).</dd>
+        <dt data-en="Supplies">Tiếp tế</dt><dd><span data-en="Enemy supply parachutes drift off course in the wind. Shoot the line to pull them in:">Dù tiếp tế của địch bị gió thổi lệch. Bắn đứt dây để kéo về:</span> <b style="color:#8fd17a">+</b> <span data-en="repair the defenses,">sửa phòng tuyến,</span> <b style="color:#7fd0f0">❄</b> <span data-en="well water keeps the barrel cool for 8 s,">nước giếng làm mát nòng 8 giây,</span> <b style="color:#ffb02e">»</b> <span data-en="rapid cannon reload for 8 s.">pháo nạp siêu nhanh 8 giây.</span></dd>
+        <dt data-en="Defeat">Thua</dt><dd data-en="The defenses drop to 0. Shoot bombs out of the sky before they land.">Phòng tuyến về 0. Bắn bom trên không trước khi chúng rơi xuống.</dd>
       </dl>
       <div class="row">
-        <button class="btn" id="btn-start" type="button">Vào trận</button>
+        <button class="btn" id="btn-start" type="button" data-en="Into battle">Vào trận</button>
         <button class="btn ghost" id="btn-sound" type="button">Âm thanh: Bật</button>
-        <button class="btn ghost" id="btn-history" type="button">Ghi chú lịch sử</button>
-        <button class="btn ghost" id="btn-donate1" type="button">Ủng hộ tác giả</button>
-        <span class="best">Cao nhất: <span id="menu-best">0</span></span>
+        <button class="btn ghost" id="btn-history" type="button" data-en="History notes">Ghi chú lịch sử</button>
+        <button class="btn ghost" id="btn-donate1" type="button" data-en="Support the author">Ủng hộ tác giả</button>
+        <button class="btn ghost" id="btn-lang" type="button" lang="en" data-en="Tiếng Việt" data-en-lang="vi">English</button>
+        <span class="best"><span data-en="Best:">Cao nhất:</span> <span id="menu-best">0</span></span>
       </div>
     </div>
   </div>
 
   <div class="overlay" id="history" hidden>
     <div class="card">
-      <span class="eyebrow">Ghi chú lịch sử</span>
-      <h2>Truyện hư cấu, cảm hứng có thật</h2>
-      <p>Thôn Cát Lộc, các nhân vật và diễn biến trong game là hư cấu. Câu chuyện lấy cảm hứng từ:</p>
+      <span class="eyebrow" data-en="History notes">Ghi chú lịch sử</span>
+      <h2 data-en="A fictional story, inspired by real events">Truyện hư cấu, cảm hứng có thật</h2>
+      <p data-en="Cát Lộc hamlet, its people and the events in this game are fictional. The story draws on:">Thôn Cát Lộc, các nhân vật và diễn biến trong game là hư cấu. Câu chuyện lấy cảm hứng từ:</p>
       <dl class="rules">
-        <dt>Vạn Tường</dt><dd>Quảng Ngãi, 18/8/1965. Trận đánh lớn đầu tiên trên bộ giữa Quân Giải phóng và quân Mỹ, khi lính thủy đánh bộ Mỹ đổ bộ từ biển có xe tăng, trực thăng và tàu chiến yểm trợ.</dd>
-        <dt>Vịnh Mốc</dt><dd>Vĩnh Linh, Quảng Trị. Cả làng sống trong địa đạo suốt những năm bị bắn phá.</dd>
-        <dt>Người tải đạn</dt><dd>Phụ nữ, người già và thiếu niên mang đạn, nước ra trận địa dưới bom đạn.</dd>
-        <dt>Cồn Cỏ</dt><dd>Hòn đảo nhỏ ngoài khơi Quảng Trị trụ vững qua những năm bị bắn phá dày đặc.</dd>
+        <dt>Vạn Tường</dt><dd data-en="Quảng Ngãi, 18 August 1965. The first major ground battle between the Liberation Army and US forces, as US Marines landed from the sea backed by tanks, helicopters and warships.">Quảng Ngãi, 18/8/1965. Trận đánh lớn đầu tiên trên bộ giữa Quân Giải phóng và quân Mỹ, khi lính thủy đánh bộ Mỹ đổ bộ từ biển có xe tăng, trực thăng và tàu chiến yểm trợ.</dd>
+        <dt>Vịnh Mốc</dt><dd data-en="Vĩnh Linh, Quảng Trị. A whole village lived underground in tunnels through years of bombing.">Vĩnh Linh, Quảng Trị. Cả làng sống trong địa đạo suốt những năm bị bắn phá.</dd>
+        <dt data-en="Ammunition carriers">Người tải đạn</dt><dd data-en="Women, old people and teenagers carried ammunition and water to the front line under fire.">Phụ nữ, người già và thiếu niên mang đạn, nước ra trận địa dưới bom đạn.</dd>
+        <dt>Cồn Cỏ</dt><dd data-en="A small island off the coast of Quảng Trị that held out through years of heavy bombardment.">Hòn đảo nhỏ ngoài khơi Quảng Trị trụ vững qua những năm bị bắn phá dày đặc.</dd>
       </dl>
-      <div class="row"><button class="btn" id="btn-history-close" type="button">Đóng</button></div>
+      <div class="row"><button class="btn" id="btn-history-close" type="button" data-en="Close">Đóng</button></div>
     </div>
   </div>
 
   <div class="overlay" id="donate" hidden>
     <div class="card" style="width:min(420px,100%)">
-      <span class="eyebrow">Ủng hộ tác giả</span>
-      <h2>Cảm ơn bạn đã chơi</h2>
-      <p>Nếu thích game, bạn có thể ủng hộ để tác giả làm tiếp các chương sau. Mở ZaloPay hoặc bất kỳ ứng dụng ngân hàng nào và quét mã bên dưới.</p>
-      <img id="donate-img" src="ung-ho-qr.jpg?v=2" alt="Mã QR ủng hộ tác giả" style="width:100%;max-width:320px;align-self:center;border-radius:6px;background:#fff">
-      <p id="donate-missing" hidden>Bản này chưa có mã QR.</p>
-      <div class="row"><button class="btn" id="btn-donate-close" type="button">Đóng</button></div>
+      <span class="eyebrow" data-en="Support the author">Ủng hộ tác giả</span>
+      <h2 data-en="Thanks for playing">Cảm ơn bạn đã chơi</h2>
+      <p data-en="If you enjoyed the game, you can help the author make the next chapters. The QR code below works with ZaloPay and Vietnamese banking apps.">Nếu thích game, bạn có thể ủng hộ để tác giả làm tiếp các chương sau. Mở ZaloPay hoặc bất kỳ ứng dụng ngân hàng nào và quét mã bên dưới.</p>
+      <img id="donate-img" src="ung-ho-qr.jpg?v=2" alt="Mã QR ủng hộ tác giả" data-en-alt="QR code to support the author" style="width:100%;max-width:320px;align-self:center;border-radius:6px;background:#fff">
+      <p id="donate-missing" hidden data-en="This copy has no QR code.">Bản này chưa có mã QR.</p>
+      <div class="row"><button class="btn" id="btn-donate-close" type="button" data-en="Close">Đóng</button></div>
     </div>
   </div>
 
   <div class="overlay" id="finale" hidden>
     <div class="card">
-      <span class="eyebrow">18:00 · Trời tối</span>
-      <h2>Đồi cát vẫn còn người</h2>
-      <p>Phía biển, quân đổ bộ lùi về bãi lập tuyến phòng thủ ban đêm. Dưới chân đồi, một ngọn đèn dầu nhỏ bắt đầu đi về phía núi, sau lưng là sáu trăm người.</p>
-      <p><b style="color:var(--ink)">Thợ:</b> "Đoàn đi rồi Ba. Cần một người ở lại bắn chặn hậu, cho tụi nó tưởng đồi này còn người."</p>
+      <span class="eyebrow" data-en="18:00 · Nightfall">18:00 · Trời tối</span>
+      <h2 data-en="Someone still holds the dune">Đồi cát vẫn còn người</h2>
+      <p data-en="Out at sea, the landing force pulls back to dig in on the beach for the night. At the foot of the dune, a small oil lamp starts moving toward the mountains, with six hundred people behind it.">Phía biển, quân đổ bộ lùi về bãi lập tuyến phòng thủ ban đêm. Dưới chân đồi, một ngọn đèn dầu nhỏ bắt đầu đi về phía núi, sau lưng là sáu trăm người.</p>
+      <p><b style="color:var(--ink)">Thợ:</b> <span data-en="&quot;The column is moving, Three. Someone has to stay and cover the retreat, so they think this dune is still manned.&quot;">"Đoàn đi rồi Ba. Cần một người ở lại bắn chặn hậu, cho tụi nó tưởng đồi này còn người."</span></p>
       <div class="row">
-        <button class="btn" id="btn-leave" type="button">Rút theo đoàn</button>
-        <button class="btn ghost" id="btn-stay" type="button">Ở lại chặn hậu</button>
+        <button class="btn" id="btn-leave" type="button" data-en="Leave with the column">Rút theo đoàn</button>
+        <button class="btn ghost" id="btn-stay" type="button" data-en="Stay as rearguard">Ở lại chặn hậu</button>
       </div>
     </div>
   </div>
 
   <div class="overlay" id="pause" hidden>
     <div class="card">
-      <span class="eyebrow">Tạm dừng</span>
-      <h2>Ngưng bắn</h2>
+      <span class="eyebrow" data-en="Paused">Tạm dừng</span>
+      <h2 data-en="Hold fire">Ngưng bắn</h2>
       <div class="row">
-        <button class="btn" id="btn-resume" type="button">Tiếp tục</button>
-        <button class="btn ghost" id="btn-menu1" type="button">Về menu</button>
+        <button class="btn" id="btn-resume" type="button" data-en="Resume">Tiếp tục</button>
+        <button class="btn ghost" id="btn-menu1" type="button" data-en="Main menu">Về menu</button>
       </div>
     </div>
   </div>
@@ -211,7 +215,7 @@ body { margin: 0; overflow: hidden; background: var(--night); color: var(--ink);
   <div class="overlay" id="upgrade" hidden>
     <div class="card" style="width:min(720px,100%)">
       <span class="eyebrow" id="upg-title">Hoàn thành đợt</span>
-      <h2>Chọn một nâng cấp</h2>
+      <h2 data-en="Choose an upgrade">Chọn một nâng cấp</h2>
       <p id="upg-sub"></p>
       <div class="upgrades" id="upg-list"></div>
     </div>
@@ -223,15 +227,15 @@ body { margin: 0; overflow: hidden; background: var(--night); color: var(--ink);
       <h2 id="over-title">Đồi cát đã vỡ</h2>
       <p id="over-story"></p>
       <div class="stats">
-        <div><b id="over-score">0</b><span>Điểm</span></div>
-        <div><b id="over-wave">1</b><span>Đợt đạt tới</span></div>
-        <div><b id="over-kills">0</b><span>Địch bị hạ</span></div>
+        <div><b id="over-score">0</b><span data-en="Score">Điểm</span></div>
+        <div><b id="over-wave">1</b><span data-en="Wave reached">Đợt đạt tới</span></div>
+        <div><b id="over-kills">0</b><span data-en="Enemies downed">Địch bị hạ</span></div>
       </div>
       <p id="over-best"></p>
       <div class="row">
-        <button class="btn" id="btn-again" type="button">Chơi lại</button>
-        <button class="btn ghost" id="btn-menu2" type="button">Về menu</button>
-        <button class="btn ghost" id="btn-donate2" type="button">Ủng hộ tác giả</button>
+        <button class="btn" id="btn-again" type="button" data-en="Play again">Chơi lại</button>
+        <button class="btn ghost" id="btn-menu2" type="button" data-en="Main menu">Về menu</button>
+        <button class="btn ghost" id="btn-donate2" type="button" data-en="Support the author">Ủng hộ tác giả</button>
       </div>
     </div>
   </div>
@@ -242,6 +246,28 @@ body { margin: 0; overflow: hidden; background: var(--night); color: var(--ink);
 <script>
 (() => {
 'use strict';
+
+// ================= NGÔN NGỮ =================
+// ?lang=en|vi trên đường dẫn thắng; en.html đặt sẵn window.PTBB_LANG = 'en'; mặc định tiếng Việt.
+const LANG = (() => {
+  let q = null; try { q = new URLSearchParams(location.search).get('lang'); } catch (e) { /* bỏ qua */ }
+  if (q === 'en' || q === 'vi') return q;
+  return window.PTBB_LANG === 'en' ? 'en' : 'vi';
+})();
+const L = (vi, en) => (LANG === 'en' ? en : vi);
+const LOC = L('vi-VN', 'en-US');
+const fmt = (n) => n.toLocaleString(LOC);
+const hoursStr = (n) => L(`${n} giờ`, `${n} hour${n === 1 ? '' : 's'}`);
+function applyStaticLang() {
+  document.documentElement.lang = LANG;
+  document.title = L('Mười Hai Giờ Cát Lộc', 'Twelve Hours at Cát Lộc');
+  if (LANG !== 'en') return;
+  document.querySelectorAll('[data-en]').forEach((el) => { el.textContent = el.dataset.en; });
+  document.querySelectorAll('[data-en-aria]').forEach((el) => el.setAttribute('aria-label', el.dataset.enAria));
+  document.querySelectorAll('[data-en-alt]').forEach((el) => el.setAttribute('alt', el.dataset.enAlt));
+  document.querySelectorAll('[data-en-lang]').forEach((el) => el.setAttribute('lang', el.dataset.enLang));
+}
+applyStaticLang();
 
 // ================= CẤU HÌNH =================
 const CFG = {
@@ -274,10 +300,20 @@ const UPGRADES = [
   { id: 'he',     name: 'Đạn pháo nổ mạnh',      desc: 'Pháo: sát thương +3, vùng nổ rộng hơn 25%.', max: 3, apply: (s) => { s.cannonDmg += 3; s.cannonRadius *= 1.25; } },
   { id: 'repair', name: 'Đội công binh',         desc: 'Sửa phòng tuyến +50 ngay.', max: 99, apply: (s) => { G.hp = Math.min(s.maxHp, G.hp + 50); } },
 ];
+const UPGRADES_EN = {
+  armor:  ['Reinforced sandbags', 'Max integrity +25 and fully repair the defenses.'],
+  cool:   ['Water-cooled barrel', 'Machine gun heats 25% slower and cools 30% faster.'],
+  ap:     ['Armor-piercing rounds', 'Machine gun: +30% damage, +20% armor penetration.'],
+  rate:   ['Fast feed mechanism', 'Machine gun fires 20% faster.'],
+  reload: ['Seasoned cannon crew', 'Cannon reloads 25% faster.'],
+  he:     ['High-explosive shells', 'Cannon: +3 damage, 25% larger blast radius.'],
+  repair: ['Engineer team', 'Repair the defenses +50 right now.'],
+};
+if (LANG === 'en') for (const u of UPGRADES) { u.name = UPGRADES_EN[u.id][0]; u.desc = UPGRADES_EN[u.id][1]; }
 
 // ================= KỊCH BẢN "MƯỜI HAI GIỜ CÁT LỘC" =================
 const H_ = 'Má Hòa', T_ = 'Thợ', C_ = 'Út Cò';
-const STORY = {
+const STORY_VI = {
   finalWave: 12,
   waves: [null,
     { intro: [[H_, 'Ụ Ba, tàu chiến ngoài khơi bắn rồi đó. Bà con xuống địa đạo hết rồi, giờ tới tối thì con là cái cửa của cả thôn.']],
@@ -319,9 +355,56 @@ const STORY = {
   over: [
     { text: 'Đồi cát vỡ lúc {gio}. Sáu trăm người vẫn còn dưới hầm.', cheer: 'Đứng dậy con. Mặt trời mới lên thôi.' },
     { text: 'Đồi cát vỡ lúc {gio}. Trời còn sáng quá, chưa ai rút được.', cheer: 'Nắng mấy rồi cũng tắt. Lên lại đi con.' },
-    { text: 'Chỉ còn {con} giờ nữa là tối.', cheer: 'Gần tối rồi. Thêm một lần nữa thôi.' },
+    { text: 'Chỉ còn {con} nữa là tối.', cheer: 'Gần tối rồi. Thêm một lần nữa thôi.' },
   ],
 };
+// Bản tiếng Anh: cùng cấu trúc, cùng người nói, cùng số câu với bản tiếng Việt (có test kiểm tra).
+const STORY_EN = {
+  finalWave: 12,
+  waves: [null,
+    { intro: [[H_, 'Pit Three, the warships offshore have opened fire. Everyone is down in the tunnels. Until dark, you are the door to the whole hamlet.']],
+      outro: [[T_, 'Three! Thợ here. Our unit is holding the mountain side, so this dune is down to you and me. Three it is. Short and easy to shout.']] },
+    { intro: [[H_, 'So many amtracs, child. Wait until they reach the sand before you shoot. In the water they are tough.']],
+      outro: [[C_, 'Út Cò here! Their choppers drop supplies, but the wind blows them off course. Shoot the line, I will crawl out and drag them in!']] },
+    { intro: [[H_, 'There are over six hundred people below, half of them children. We do not need to win. We need nightfall.']],
+      outro: [[T_, 'Those tanks can cross sand. Hit them with the cannon, Three. The machine gun only scratches their backs.']] },
+    { intro: [[T_, 'Sun is up. The barrel runs hotter now, so keep your bursts short.']],
+      outro: [[H_, 'Nine more hours until dark. Hold on, child.']] },
+    { intro: [[H_, 'Planes! Take cover! When the bombs fall, shoot them in the sky. Do not let them touch the dune.']],
+      outro: [[C_, 'I crawled past three bomb craters to get here. Well water! Cool your barrel with it.']] },
+    { intro: [[H_, 'Pit Three… tunnel two took a bomb… there are children still inside…'], [T_, 'I will go dig. Hold the dune, Three. Do not let them reach the tunnel entrance.']],
+      outro: [[T_, 'Got them out! Eleven kids, every one of them crying. Crying means breathing, Three.']], note: 'Thợ left his tools ready in a basket before going down the tunnel.' },
+    { intro: [[C_, 'I caught some shrapnel, in the leg. It is nothing! I can still drag this crate back.']],
+      outro: [[H_, 'The sun is overhead. Half the day gone, half the day left.']] },
+    { intro: [[C_, 'Brother Three, I found this in an American soldier\'s pocket. There is a photo.'], [H_, 'The boy was writing to his mother. Says it is too hot here. Says he misses his dog back home.']],
+      outro: [[H_, 'Over there, someone is a mother too, child. But they will still come up the beach. Hold the dune.']] },
+    { intro: [[T_, 'Thợ is back. Hands all blistered, but I can still turn a wrench.']],
+      outro: [[H_, 'Four hours left. People are starting to pack their things down in the tunnels.']] },
+    { intro: [[H_, 'The ships offshore are landing their biggest wave yet. They want this over before dark.']],
+      outro: [[H_, 'Tonight I lead everyone along the creek to the mountains. I carry the lamp at the back. You go with Thợ, in the middle.']] },
+    { intro: [[C_, 'Last crate, brother! I am… I am tired. I will just lie here for a bit.']],
+      outro: [[T_, 'Út Cò is asleep, Three. I put my shirt over him. He will not let go of that parachute cord.']] },
+    { intro: [[H_, 'The sun is touching the mountains, child. This is the last wave of the day. Hold one more hour for me.'], [T_, 'Once it is dark, we go. Once it is dark, they cannot see us anymore.']],
+      outro: [] },
+  ],
+  endless: [[H_, 'The column has reached the creek. Pit Three, make that gun roar.'], [T_, 'I am staying with you, Three. One shoots, one feeds the ammo.']],
+  upgradeLine: {
+    armor: 'Sandbags sewn from the co-op rice sacks. The mothers stitched all night.',
+    cool: 'I rigged the forge bellows to fan the barrel. My old trade, Three.',
+    ap: 'I reforged the bullet tips in the forge. Now the tanks will feel it.',
+    rate: 'New feed spring. I took it off… do not ask, Three.',
+    reload: 'I lined up the shells for you. Just reach out.',
+    he: 'Explosive scavenged from their duds. Returned to sender.',
+    repair: 'Hold still, let me patch the breach.',
+  },
+  crateLine: { repair: 'Sandbags and a shovel, brother!', cool: 'Village well water, ice cold!', barrage: 'Their ammo, dropped by mistake. Ours now!' },
+  over: [
+    { text: 'The dune fell at {gio}. Six hundred people are still in the tunnels.', cheer: 'Get up, child. The sun has only just risen.' },
+    { text: 'The dune fell at {gio}. Too much daylight left; no one could get out.', cheer: 'Even the hottest sun goes down. Get back up, child.' },
+    { text: 'Only {con} left until dark.', cheer: 'It is almost dark. Just one more try.' },
+  ],
+};
+const STORY = LANG === 'en' ? STORY_EN : STORY_VI;
 const pad2 = (n) => String(n).padStart(2, '0');
 function clockStr(h) { const hh = Math.floor(h), mm = Math.floor((h - hh) * 60); return `${pad2(hh)}:${pad2(mm)}`; }
 function waveHour(n) { return 5 + n; }
@@ -495,9 +578,9 @@ function kill(e) {
 }
 function applyBuff(kind) {
   const B = CFG.buff;
-  if (kind === 'repair') { G.hp = Math.min(G.stats.maxHp, G.hp + B.repair); showBanner('TIẾP TẾ', `Sửa phòng tuyến +${B.repair}`); }
-  else if (kind === 'cool') { G.coolBoost = B.cool; G.heat = 0; G.overheated = false; showBanner('TIẾP TẾ', `Nòng không nóng trong ${B.cool} giây`); }
-  else if (kind === 'barrage') { G.barrage = B.barrage; G.cannonCD = 0; showBanner('TIẾP TẾ', `Pháo nạp siêu nhanh trong ${B.barrage} giây`); }
+  if (kind === 'repair') { G.hp = Math.min(G.stats.maxHp, G.hp + B.repair); showBanner(L('TIẾP TẾ', 'SUPPLY DROP'), L(`Sửa phòng tuyến +${B.repair}`, `Defenses repaired +${B.repair}`)); }
+  else if (kind === 'cool') { G.coolBoost = B.cool; G.heat = 0; G.overheated = false; showBanner(L('TIẾP TẾ', 'SUPPLY DROP'), L(`Nòng không nóng trong ${B.cool} giây`, `Barrel stays cool for ${B.cool} s`)); }
+  else if (kind === 'barrage') { G.barrage = B.barrage; G.cannonCD = 0; showBanner(L('TIẾP TẾ', 'SUPPLY DROP'), L(`Pháo nạp siêu nhanh trong ${B.barrage} giây`, `Rapid cannon reload for ${B.barrage} s`)); }
   radio([[C_, STORY.crateLine[kind]]], true);
   sfx('pickup');
 }
@@ -593,10 +676,10 @@ function startWave(n) {
   G.wave = n; G.speedMul = spec.speedMul; G.interval = spec.interval; G.cargo = spec.cargo; G.hpMul = spec.hpMul;
   G.queue = makeQueue(spec, G.rng); G.spawnT = 2.2; G.clearT = -1; G.waveT = 0;
   if (G.endless) {
-    showBanner(`ĐỢT ${n}`, `Chặn hậu · ${G.queue.length} mục tiêu đang tới`);
+    showBanner(L(`ĐỢT ${n}`, `WAVE ${n}`), L(`Chặn hậu · ${G.queue.length} mục tiêu đang tới`, `Rearguard · ${G.queue.length} targets inbound`));
   } else {
     const left = 18 - waveHour(n);
-    showBanner(`${clockStr(waveHour(n))}`, `Đợt ${n} · còn ${left} giờ tới tối · ${G.queue.length} mục tiêu đang tới`);
+    showBanner(`${clockStr(waveHour(n))}`, L(`Đợt ${n} · còn ${hoursStr(left)} tới tối · ${G.queue.length} mục tiêu đang tới`, `Wave ${n} · ${hoursStr(left)} to nightfall · ${G.queue.length} targets inbound`));
     const s = STORY.waves[n]; if (s) radio(s.intro, true);
   }
 }
@@ -637,14 +720,14 @@ function endStory() {
   G.state = 'ended'; G.firing = false; clearRadio();
   const newBest = G.score > best;
   if (newBest) { best = G.score; storeSet('ptbb.best', String(best)); }
-  fillOver('Kết thúc · Rút theo đoàn', 'Ngọn Đèn Đi Về Phía Núi', 'Bạn đi giữa đoàn dân, Má Hòa cầm đèn đi cuối. Sáng mai, Cát Lộc chỉ còn là cát. Nhưng người Cát Lộc thì còn.', newBest);
+  fillOver(L('Kết thúc · Rút theo đoàn', 'The end · Left with the column'), L('Ngọn Đèn Đi Về Phía Núi', 'The Lamp Walks Toward the Mountains'), L('Bạn đi giữa đoàn dân, Má Hòa cầm đèn đi cuối. Sáng mai, Cát Lộc chỉ còn là cát. Nhưng người Cát Lộc thì còn.', 'You walk in the middle of the column, Má Hòa carrying the lamp at the back. By morning, Cát Lộc will be nothing but sand. But the people of Cát Lộc live on.'), newBest);
 }
 function fillOver(eyebrow, title, story, newBest) {
   $('over-eyebrow').textContent = eyebrow; $('over-title').textContent = title; $('over-story').textContent = story;
-  $('over-score').textContent = G.score.toLocaleString('vi-VN');
+  $('over-score').textContent = fmt(G.score);
   $('over-wave').textContent = String(G.wave);
   $('over-kills').textContent = String(G.kills);
-  $('over-best').textContent = newBest && G.score > 0 ? 'Kỷ lục mới!' : `Điểm cao nhất: ${best.toLocaleString('vi-VN')}`;
+  $('over-best').textContent = newBest && G.score > 0 ? L('Kỷ lục mới!', 'New record!') : L(`Điểm cao nhất: ${fmt(best)}`, `Best score: ${fmt(best)}`);
   ui.over.hidden = false;
 }
 function hourNow() {
@@ -1003,7 +1086,7 @@ function drawCrosshair() {
   ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
   ctx.moveTo(x - r - 7, y); ctx.lineTo(x - r + 5, y); ctx.moveTo(x + r - 5, y); ctx.lineTo(x + r + 7, y);
   ctx.moveTo(x, y - r - 7); ctx.lineTo(x, y - r + 5); ctx.moveTo(x, y + r - 5); ctx.lineTo(x, y + r + 7); ctx.stroke();
-  if (G.overheated) { ctx.fillStyle = '#ff5a3c'; ctx.font = '700 12px "Chakra Petch", sans-serif'; ctx.textAlign = 'center'; ctx.fillText('QUÁ NHIỆT', x, y + r + 22); }
+  if (G.overheated) { ctx.fillStyle = '#ff5a3c'; ctx.font = '700 12px "Chakra Petch", sans-serif'; ctx.textAlign = 'center'; ctx.fillText(L('QUÁ NHIỆT', 'OVERHEATED'), x, y + r + 22); }
 }
 
 // ================= PHASE 4: GIAO DIỆN =================
@@ -1032,15 +1115,16 @@ function setText(el, key, v) { if (last[key] !== v) { last[key] = v; el.textCont
 function updateHud() {
   const g = G || { wave: 1, score: 0, hp: CFG.playerHP, heat: 0, cannonCD: 0, overheated: false, coolBoost: 0, barrage: 0, stats: { maxHp: CFG.playerHP, cannonReload: CFG.cannon.reload } };
   const buffs = [];
-  if (g.coolBoost > 0) buffs.push(`Nòng mát ${Math.ceil(g.coolBoost)}s`);
-  if (g.barrage > 0) buffs.push(`Pháo nhanh ${Math.ceil(g.barrage)}s`);
+  if (g.coolBoost > 0) buffs.push(L(`Nòng mát ${Math.ceil(g.coolBoost)}s`, `Cool barrel ${Math.ceil(g.coolBoost)}s`));
+  if (g.barrage > 0) buffs.push(L(`Pháo nhanh ${Math.ceil(g.barrage)}s`, `Rapid cannon ${Math.ceil(g.barrage)}s`));
   setText(ui.buff, 'buff', buffs.join(' · '));
   setText(ui.wave, 'wave', String(Math.max(1, g.wave)));
-  const clk = !G ? '06:00 · còn 12 giờ tới tối' : G.endless ? 'Đêm · chặn hậu' : `${clockStr(hourNow())} · còn ${Math.max(1, 18 - waveHour(Math.max(1, G.wave)))} giờ tới tối`;
+  const left = !G ? 12 : Math.max(1, 18 - waveHour(Math.max(1, G.wave)));
+  const clk = G && G.endless ? L('Đêm · chặn hậu', 'Night · rearguard') : `${G ? clockStr(hourNow()) : '06:00'} · ${L(`còn ${hoursStr(left)} tới tối`, `${hoursStr(left)} to nightfall`)}`;
   setText(ui.clock, 'clock', clk);
-  setText(ui.score, 'score', g.score.toLocaleString('vi-VN'));
-  setText(ui.best, 'best', best.toLocaleString('vi-VN'));
-  setText(ui.menuBest, 'mbest', best.toLocaleString('vi-VN'));
+  setText(ui.score, 'score', fmt(g.score));
+  setText(ui.best, 'best', fmt(best));
+  setText(ui.menuBest, 'mbest', fmt(best));
   ui.hp.firstElementChild.style.transform = `scaleX(${clamp(g.hp / g.stats.maxHp, 0, 1)})`;
   ui.hp.classList.toggle('hot', g.hp < g.stats.maxHp * 0.3);
   ui.heat.firstElementChild.style.transform = `scaleX(${clamp(g.heat, 0, 1)})`;
@@ -1055,21 +1139,21 @@ function showBanner(text, sub) {
   ui.banner.classList.add('show'); clearTimeout(bannerTimer); bannerTimer = setTimeout(() => ui.banner.classList.remove('show'), 1900);
 }
 function showUpgradeUI(bonus) {
-  $('upg-title').textContent = G.endless ? `Chặn hậu · hết đợt ${G.wave}` : `${clockStr(waveHour(G.wave) + 1)} · hết đợt ${G.wave}`;
+  $('upg-title').textContent = G.endless ? L(`Chặn hậu · hết đợt ${G.wave}`, `Rearguard · wave ${G.wave} cleared`) : `${clockStr(waveHour(G.wave) + 1)} · ${L(`hết đợt ${G.wave}`, `wave ${G.wave} cleared`)}`;
   const sub = $('upg-sub'); sub.innerHTML = '';
   const s = !G.endless && STORY.waves[G.wave];
   if (s) for (const [who, text] of s.outro) { const q = document.createElement('span'); q.className = 'quote'; const w = document.createElement('b'); w.textContent = `${who}: `; q.append(w, `"${text}"`); sub.append(q, document.createElement('br')); }
   if (s && s.note) { const nEl = document.createElement('em'); nEl.textContent = s.note; sub.append(nEl, document.createElement('br')); }
-  sub.append(`+${bonus.toLocaleString('vi-VN')} điểm thưởng, sửa phòng tuyến +${CFG.waveRepair}. Bền hiện tại ${Math.round(G.hp)}/${G.stats.maxHp}.`);
+  sub.append(L(`+${fmt(bonus)} điểm thưởng, sửa phòng tuyến +${CFG.waveRepair}. Bền hiện tại ${Math.round(G.hp)}/${G.stats.maxHp}.`, `+${fmt(bonus)} bonus points, defenses repaired +${CFG.waveRepair}. Integrity now ${Math.round(G.hp)}/${G.stats.maxHp}.`));
   const list = $('upg-list'); list.innerHTML = '';
   G.choices.forEach((u, i) => {
     const b = document.createElement('button'); b.type = 'button'; b.className = 'upg'; b.id = `upg-${i}`;
     const lv = G.levels[u.id] || 0;
-    const k = document.createElement('span'); k.className = 'key'; k.textContent = `PHÍM ${i + 1}`;
+    const k = document.createElement('span'); k.className = 'key'; k.textContent = L(`PHÍM ${i + 1}`, `KEY ${i + 1}`);
     const n = document.createElement('b'); n.textContent = u.name;
     const d = document.createElement('span'); d.textContent = u.desc;
     const f = document.createElement('span'); f.className = 'flavor'; f.textContent = `"${STORY.upgradeLine[u.id]}"`;
-    const l = document.createElement('span'); l.className = 'lvl'; l.textContent = u.max > 10 ? 'Dùng ngay' : `Cấp ${lv} → ${lv + 1} / ${u.max}`;
+    const l = document.createElement('span'); l.className = 'lvl'; l.textContent = u.max > 10 ? L('Dùng ngay', 'Instant') : L(`Cấp ${lv} → ${lv + 1} / ${u.max}`, `Level ${lv} → ${lv + 1} / ${u.max}`);
     b.append(k, n, d, f, l); b.addEventListener('click', () => chooseUpgrade(i));
     list.append(b);
   });
@@ -1096,11 +1180,11 @@ function gameOver() {
   if (newBest) { best = G.score; storeSet('ptbb.best', String(best)); }
   if (G.endless) {
     const n = Math.max(0, G.wave - STORY.finalWave - 1);
-    fillOver('Kết thúc · Ở lại chặn hậu', 'Ụ Ba Không Tắt Lửa', `Đêm đó, tiếng súng trên đồi cát không dứt. Đồi cát giữ thêm ${n} đợt. Sau giải phóng, người Cát Lộc về dựng lại làng, và đặt tên con đường lên đồi là Đường Ụ Ba.`, newBest);
+    fillOver(L('Kết thúc · Ở lại chặn hậu', 'The end · Stayed as rearguard'), L('Ụ Ba Không Tắt Lửa', 'Pit Three Never Fell Silent'), L(`Đêm đó, tiếng súng trên đồi cát không dứt. Đồi cát giữ thêm ${n} đợt. Sau giải phóng, người Cát Lộc về dựng lại làng, và đặt tên con đường lên đồi là Đường Ụ Ba.`, `That night, the gunfire on the dune never stopped. The dune held for ${n} more wave${n === 1 ? '' : 's'}. After the war, the people of Cát Lộc came home to rebuild, and named the road up the dune Pit Three Road.`), newBest);
   } else {
     const o = STORY.over[actOf(G.wave) - 1];
-    const text = o.text.replace('{gio}', clockStr(hourNow())).replace('{con}', String(Math.max(1, 18 - waveHour(G.wave))));
-    fillOver(`Kết thúc · ${clockStr(hourNow())}`, 'Đồi cát đã vỡ', `${text} Má Hòa: "${o.cheer}"`, newBest);
+    const text = o.text.replace('{gio}', clockStr(hourNow())).replace('{con}', hoursStr(Math.max(1, 18 - waveHour(G.wave))));
+    fillOver(`${L('Kết thúc', 'The end')} · ${clockStr(hourNow())}`, L('Đồi cát đã vỡ', 'The dune has fallen'), `${text} Má Hòa: "${o.cheer}"`, newBest);
   }
   sfx('boom');
 }
@@ -1147,8 +1231,10 @@ $('btn-history-close').addEventListener('click', () => { ui.history.hidden = tru
 $('btn-donate1').addEventListener('click', openDonate);
 $('btn-donate2').addEventListener('click', openDonate);
 $('btn-donate-close').addEventListener('click', () => { ui.donate.hidden = true; });
+function langUrl(to) { const u = new URL(location.href); u.searchParams.set('lang', to); u.hash = ''; return u.href; }
+$('btn-lang').addEventListener('click', () => { location.href = langUrl(L('en', 'vi')); });
 const btnSound = $('btn-sound');
-function syncSoundBtn() { btnSound.textContent = soundOn ? 'Âm thanh: Bật' : 'Âm thanh: Tắt'; }
+function syncSoundBtn() { btnSound.textContent = soundOn ? L('Âm thanh: Bật', 'Sound: On') : L('Âm thanh: Tắt', 'Sound: Off'); }
 btnSound.addEventListener('click', () => { soundOn = !soundOn; storeSet('ptbb.sound', soundOn ? '1' : '0'); syncSoundBtn(); audioInit(); });
 syncSoundBtn();
 
@@ -1290,13 +1376,13 @@ async function selfTest() {
   check(6, 'Đồng hồ: đợt 1 là 06:00, đợt 12 là 17:00, giờ trôi trong đợt', () => { const a = hourNow(); run(20); const b = hourNow(); return waveHour(1) === 6 && waveHour(12) === 17 && b > a && clockStr(6.5) === '06:30'; });
   check(6, 'Bầu trời đổi màu: sáng, trưa, đêm khác nhau', () => { const a = skyAt(6).top, b = skyAt(12).top, c = skyAt(20).top; return a !== b && b !== c && a !== c; });
   check(6, 'Chia hồi đúng: 1–3, 4–8, 9–12, sau đó là chặn hậu', () => [1, 3, 4, 8, 9, 12, 13].map(actOf).join() === '1,1,2,2,3,3,4');
-  check(6, 'Thẻ nâng cấp có lời của Thợ, đợt 6 có ghi chú', () => { newGame(4); G.silent = true; G.wave = 6; enterUpgrade(); const ok = $('upg-list').querySelectorAll('.flavor').length === 3 && $('upg-sub').textContent.includes('thúng'); chooseUpgrade(0); return ok; });
+  check(6, 'Thẻ nâng cấp có lời của Thợ, đợt 6 có ghi chú', () => { newGame(4); G.silent = true; G.wave = 6; enterUpgrade(); const ok = $('upg-list').querySelectorAll('.flavor').length === 3 && $('upg-sub').textContent.includes(L('thúng', 'basket')); chooseUpgrade(0); return ok; });
   check(6, 'Bắt thùng tiếp tế thì Út Cò lên tiếng', () => { fresh(); kill(spawn('crate', { kind: 'cool' })); return vis(ui.radio) && $('radio-who').textContent === 'Út Cò'; });
   check(6, 'Hết đợt 12 thì tới lựa chọn cuối, không phải bảng nâng cấp', () => { newGame(6); G.silent = true; G.wave = 12; enterUpgrade(); return G.state === 'finale' && vis(ui.finale) && !vis(ui.upgrade); });
-  check(6, 'Chọn "Rút theo đoàn" thì ra kết "Ngọn Đèn Đi Về Phía Núi"', () => { $('btn-leave').click(); return G.state === 'ended' && vis(ui.over) && $('over-title').textContent === 'Ngọn Đèn Đi Về Phía Núi' && !vis(ui.finale); });
+  check(6, 'Chọn "Rút theo đoàn" thì ra kết "Ngọn Đèn Đi Về Phía Núi"', () => { $('btn-leave').click(); return G.state === 'ended' && vis(ui.over) && $('over-title').textContent === L('Ngọn Đèn Đi Về Phía Núi', 'The Lamp Walks Toward the Mountains') && !vis(ui.finale); });
   check(6, 'Chọn "Ở lại chặn hậu" thì sang đợt 13 ban đêm, đầy bền', () => { ui.over.hidden = true; newGame(6); G.silent = true; G.wave = 12; G.hp = 20; enterUpgrade(); $('btn-stay').click(); return G.endless && G.state === 'playing' && G.wave === 13 && G.hp === G.stats.maxHp && hourNow() === 20; });
-  check(6, 'Thua khi chặn hậu ra kết "Ụ Ba Không Tắt Lửa"', () => { G.wave = 16; G.score = 0; damagePlayer(999); return $('over-title').textContent === 'Ụ Ba Không Tắt Lửa' && $('over-story').textContent.includes('giữ thêm 3 đợt'); });
-  check(6, 'Thua giữa trưa thì câu thua đúng hồi II', () => { ui.over.hidden = true; newGame(2); G.silent = true; G.wave = 5; G.score = 0; damagePlayer(999); return $('over-story').textContent.includes('Trời còn sáng quá') && $('over-eyebrow').textContent.includes('10:'); });
+  check(6, 'Thua khi chặn hậu ra kết "Ụ Ba Không Tắt Lửa"', () => { G.wave = 16; G.score = 0; damagePlayer(999); return $('over-title').textContent === L('Ụ Ba Không Tắt Lửa', 'Pit Three Never Fell Silent') && $('over-story').textContent.includes(L('giữ thêm 3 đợt', 'held for 3 more waves')); });
+  check(6, 'Thua giữa trưa thì câu thua đúng hồi II', () => { ui.over.hidden = true; newGame(2); G.silent = true; G.wave = 5; G.score = 0; damagePlayer(999); return $('over-story').textContent.includes(L('Trời còn sáng quá', 'Too much daylight')) && $('over-eyebrow').textContent.includes('10:'); });
   check(6, 'Mở và đóng bảng ủng hộ', () => { ui.over.hidden = true; toMenu(); $('btn-donate1').click(); const open = vis(ui.donate) && /^ung-ho-qr\.jpg(\?v=\d+)?$/.test($('donate-img').getAttribute('src')); $('btn-donate-close').click(); return open && !vis(ui.donate); });
   check(6, 'Mở và đóng ghi chú lịch sử', () => { $('btn-history').click(); const open = vis(ui.history) && ui.history.textContent.includes('Vạn Tường'); $('btn-history-close').click(); return open && !vis(ui.history); });
 
@@ -1306,9 +1392,40 @@ async function selfTest() {
   check(4, 'Mở trang chỉ thấy menu, không chồng bảng khác', () => !ui.menu.hidden && ui.pause.hidden && ui.over.hidden && shown(ui.menu) && !shown(ui.pause) && !shown(ui.over) && !shown(ui.upgrade) && !shown(ui.finale) && !shown(ui.donate) && !shown(ui.history) && !shown(ui.radio));
   check(4, 'Nút Vào trận bắt đầu game', () => { $('btn-start').click(); G.silent = true; return !!G && G.state === 'playing' && ui.menu.hidden && G.wave === 1; });
   check(4, 'Tạm dừng và tiếp tục', () => { togglePause(); const p = G.state === 'paused' && !ui.pause.hidden; step(1); const frozen = G.queue.length > 0; $('btn-resume').click(); return p && frozen && G.state === 'playing' && ui.pause.hidden && !shown(ui.pause) && !shown(ui.menu); });
-  check(4, 'Có nút pháo cho điện thoại', () => !!ui.btnCannon && ui.btnCannon.textContent.trim() === 'PHÁO');
+  check(4, 'Có nút pháo cho điện thoại', () => !!ui.btnCannon && ui.btnCannon.textContent.trim() === L('PHÁO', 'CANNON'));
   check(4, 'Trang không bị cuộn ngang', () => document.documentElement.scrollWidth <= window.innerWidth + 1);
   check(4, 'Màn hình thua hiện đúng điểm', () => { G.score = 1234; G.wave = 3; damagePlayer(999); const ok = !ui.over.hidden && shown(ui.over) && $('over-wave').textContent === '3'; return ok; });
+
+  // Phase 7: ngôn ngữ
+  const VI_CHARS = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
+  const NAMES = ['Tiếng Việt', 'Cát Lộc', 'Má Hòa', 'Út Cò', 'Thợ', 'Quảng Ngãi', 'Vạn Tường', 'Vịnh Mốc', 'Vĩnh Linh', 'Quảng Trị', 'Cồn Cỏ'];
+  const viLeft = (t) => { let x = String(t); for (const n of NAMES) x = x.split(n).join(''); return VI_CHARS.test(x); };
+  check(7, 'Bản tiếng Anh đủ lời thoại, cùng người nói như bản tiếng Việt', () => {
+    const a = STORY_VI, b = STORY_EN;
+    if (a.waves.length !== b.waves.length || a.finalWave !== b.finalWave || a.over.length !== b.over.length || a.endless.length !== b.endless.length) return false;
+    for (let n = 1; n < a.waves.length; n++) for (const part of ['intro', 'outro']) {
+      const x = a.waves[n][part], y = b.waves[n][part];
+      if (x.length !== y.length || x.some((l, i) => l[0] !== y[i][0] || !y[i][1])) return false;
+      if (!!a.waves[n].note !== !!b.waves[n].note) return false;
+    }
+    const same = (o, q) => Object.keys(o).sort().join() === Object.keys(q).sort().join();
+    return same(a.upgradeLine, b.upgradeLine) && same(a.crateLine, b.crateLine) && UPGRADES.every((u) => UPGRADES_EN[u.id] && UPGRADES_EN[u.id].length === 2);
+  });
+  check(7, 'Lời dịch tiếng Anh không sót chữ tiếng Việt', () => {
+    const texts = [...document.querySelectorAll('[data-en]')].map((e) => e.dataset.en)
+      .concat([...document.querySelectorAll('[data-en-aria]')].map((e) => e.dataset.enAria), [...document.querySelectorAll('[data-en-alt]')].map((e) => e.dataset.enAlt))
+      .concat(Object.values(UPGRADES_EN).flat(), Object.values(STORY_EN.upgradeLine), Object.values(STORY_EN.crateLine), STORY_EN.over.flatMap((o) => [o.text, o.cheer]), STORY_EN.endless.map((l) => l[1]))
+      .concat(STORY_EN.waves.slice(1).flatMap((w) => [...w.intro, ...w.outro].map((l) => l[1]).concat(w.note || [])));
+    return texts.length > 80 && !texts.some(viLeft);
+  });
+  check(7, 'Mọi chữ hiện trên màn hình đều có bản dịch', () => {
+    const stage = $('stage').cloneNode(true); stage.querySelector('#selftest').remove();
+    if (LANG !== 'en') return VI_CHARS.test(stage.textContent);
+    const w = document.createTreeWalker(stage, NodeFilter.SHOW_TEXT); let n;
+    while ((n = w.nextNode())) if (viLeft(n.textContent)) throw new Error(`còn chữ Việt: "${n.textContent.trim().slice(0, 60)}"`);
+    return true;
+  });
+  check(7, 'Nút đổi ngôn ngữ trỏ sang ngôn ngữ còn lại', () => $('btn-lang').textContent.trim() === L('English', 'Tiếng Việt') && langUrl(L('en', 'vi')).includes(`lang=${L('en', 'vi')}`) && document.documentElement.lang === LANG);
 
   // khôi phục
   best = savedBest; storeSet('ptbb.best', String(best)); Object.assign(aim, savedAim); toMenu();
@@ -1319,8 +1436,8 @@ async function selfTest() {
 function renderSelfTest(rep) {
   const box = $('selftest'); box.hidden = false; box.innerHTML = '';
   const h = document.createElement('div'); h.innerHTML = `<b>Tự kiểm tra: ${rep.passed}/${rep.total} đạt</b>`; box.append(h);
-  const names = { 1: 'Phase 1 · Thế giới', 2: 'Phase 2 · Vũ khí & địch', 3: 'Phase 3 · Đợt, điểm, thua', 4: 'Phase 4 · Giao diện', 5: 'Phase 5 · Nâng cấp & tiếp tế', 6: 'Phase 6 · Kịch bản & ủng hộ' };
-  for (const ph of [1, 2, 3, 4, 5, 6]) {
+  const names = { 1: 'Phase 1 · Thế giới', 2: 'Phase 2 · Vũ khí & địch', 3: 'Phase 3 · Đợt, điểm, thua', 4: 'Phase 4 · Giao diện', 5: 'Phase 5 · Nâng cấp & tiếp tế', 6: 'Phase 6 · Kịch bản & ủng hộ', 7: 'Phase 7 · Ngôn ngữ' };
+  for (const ph of [1, 2, 3, 4, 5, 6, 7]) {
     const t = document.createElement('h3'); t.textContent = names[ph]; box.append(t);
     for (const r of rep.results.filter((x) => x.phase === ph)) { const d = document.createElement('div'); d.className = r.ok ? 'pass' : 'fail'; d.textContent = (r.ok ? '✓ ' : '✗ ') + r.name + (r.err ? ` (${r.err})` : ''); box.append(d); }
   }
